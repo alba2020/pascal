@@ -1,33 +1,33 @@
-﻿program hello;
+﻿program SchoolCredits; // школьные оценки
+
 const
   N = 6; // число элементов в нашем массиве
 type
-  Arr = array[1..N] of integer; // тип нашего массива
-
+  Credits = array[1..N] of integer; // тип нашего массива
 var
-  a: Arr = (2,2,3,4,5,5); // оценки учеников
+  a: Credits = (2,2,3,4,5,5); // оценки учеников
   k: array [1..5] of integer = (0,0,0,0,0); // подсчет оценок
   s: integer;
 
 // считает сумму элементов массива
 // передаем массив как ссылку на константу
-function sum(const a: Arr):  integer;
+function sum(const a: Credits):  integer;
 var
   s: integer;
 begin
-  s := 0;
-  for var i:=1 to N do
+  s := 0; // сумма
+  for var i := Low(a) to High(a) do // от нижней до верхней границы массива
   begin
     s := s + a[i]
   end;
-  sum := s;
+  sum := s; // вернули сумму
 end;
 
 
 begin
-  for var i:=1 to N do
+  for var i := Low(a) to High(a) do // для всех элементов массива
   begin
-    k[a[i]] := k[a[i]] + 1
+    k[a[i]] := k[a[i]] + 1 // увеличили значение, соответствующее оценке
   end;
   writeln('2 - ', k[2], ' 3 - ', k[3], ' 4 - ', k[4], ' 5 - ', k[5]);
   s := sum(a);
